@@ -1,218 +1,1083 @@
-/**
-* Template Name: Techie
-* Template URL: https://bootstrapmade.com/techie-free-skin-bootstrap-3/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+<link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/dark-mode.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>THE CODE ACADEMY</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
 
-(function() {
-  "use strict";
+  <!-- Favicons -->
+  <link href="assets/img/profile.jpg" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  /**
-   * Apply .scrolled class to the body as the page is scrolled down
-   */
-  function toggleScrolled() {
-    const selectBody = document.querySelector('body');
-    const selectHeader = document.querySelector('#header');
-    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
-  }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  document.addEventListener('scroll', toggleScrolled);
-  window.addEventListener('load', toggleScrolled);
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  /**
-   * Mobile nav toggle
-   */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
 
-  function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
-  }
-  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+  <!-- =======================================================
+  * Template Name: Techie
+  * Template URL: https://bootstrapmade.com/techie-free-skin-bootstrap-3/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
 
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
-      }
-    });
+<body class="index-page">
 
-  });
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
-    });
-  });
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">The Code Academy</h1>
+      </a>
 
-  /**
-   * Preloader
-   */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
-  }
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Accueil</a></li>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Équipe</a></li>
 
-  /**
-   * Scroll top button
-   */
-  let scrollTop = document.querySelector('.scroll-top');
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
 
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-    }
-  }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
+      <a class="btn-getstarted" href="#about">Commencer</a>
 
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
+    </div>
+  </header>
 
-  /**
-   * Animation on scroll function and init
-   */
-  function aosInit() {
-    AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    });
-  }
-  window.addEventListener('load', aosInit);
+  <main class="main">
 
-  /**
-   * Initiate glightbox
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
+    <!-- Hero Section -->
+    <section id="hero" class="hero section accent-background">
 
-  /**
-   * Initiate Pure Counter
-   */
-  new PureCounter();
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h1>Une meilleure expérience digitale avec THE CODE ACDEMY </h1>
+            <p>Experts en design web, nous réalisons des sites modernes basés sur les dernières technologies</p>
+            <div class="d-flex">
+              <a href="#about" class="btn-get-started">Commencer</a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img">
+            <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+          </div>
+        </div>
+      </div>
 
-  /**
-   * Init swiper sliders
-   */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
+    </section><!-- /Hero Section -->
 
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
-      }
-    });
-  }
+    <!-- About Section -->
+    <section id="about" class="about section">
 
-  window.addEventListener("load", initSwiper);
+      <div class="container">
 
-  /**
-   * Init isotope layout and filters
-   */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+        <div class="row gy-4">
 
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
-      });
-    });
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+          </div>
 
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof aosInit === 'function') {
-          aosInit();
-        }
-      }, false);
-    });
+          <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
+            <h3>À propos de nous</h3>
+            <p>
+             The Code Academy est une agence digitale composée d’une équipe jeune et créative.
+Nous combinons design, développement et innovation pour offrir des solutions modernes et professionnelles.
 
-  });
+Notre équipe mise sur la qualité, l’organisation et l’excellence afin de garantir des résultats fiables et une expérience agréable.
+Nous travaillons pour créer de la valeur et apporter une identité unique à chaque projet..
+            </p>
+            <a href="" class="read-more"><span>En savoir plus</span><i class="bi bi-arrow-right"></i></a>
+          </div>
 
-  /**
-   * Frequently Asked Questions Toggle
-   */
-  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
-    faqItem.addEventListener('click', () => {
-      faqItem.parentNode.classList.toggle('faq-active');
-    });
-  });
+        </div>
 
-  /**
-   * Correct scrolling position upon page load for URLs containing hash links.
-   */
-  window.addEventListener('load', function(e) {
-    if (window.location.hash) {
-      if (document.querySelector(window.location.hash)) {
-        setTimeout(() => {
-          let section = document.querySelector(window.location.hash);
-          let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-          window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop),
-            behavior: 'smooth'
-          });
-        }, 100);
-      }
-    }
-  });
+      </div>
 
-  /**
-   * Navmenu Scrollspy
-   */
-  let navmenulinks = document.querySelectorAll('.navmenu a');
+    </section><!-- /About Section -->
 
-  function navmenuScrollspy() {
-    navmenulinks.forEach(navmenulink => {
-      if (!navmenulink.hash) return;
-      let section = document.querySelector(navmenulink.hash);
-      if (!section) return;
-      let position = window.scrollY + 200;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-        navmenulink.classList.add('active');
-      } else {
-        navmenulink.classList.remove('active');
-      }
-    })
-  }
-  window.addEventListener('load', navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);
+    <!-- Stats Section -->
+    <section id="stats" class="stats section accent-background">
 
-})();
+      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="132" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Clients</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="126" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Projects</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="953" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Hours Of Support</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Workers</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-code-slash"></i></div>
+              <div>
+                <h4 class="title"><a href="#" class="stretched-link">Création de sites web (HTML / CSS / JS / PHP)</a></h4>
+                <p class="description">Développement de sites web modernes et responsives adaptés à vos besoins</p>
+              </div>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-qr-code"></i></div>
+              <div>
+                <h4 class="title"><a href="#" class="stretched-link">Menu digital + QR pour restaurants</a></h4>
+                <p class="description">Création de menus numériques interactifs avec codes QR pour une expérience client moderne</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-palette"></i></div>
+              <div>
+                <h4 class="title"><a href="#" class="stretched-link">Design & Branding (Logos, Bannières, Identité visuelle)</a></h4>
+                <p class="description">Conception d'identités visuelles complètes pour renforcer votre image de marque</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-rocket"></i></div>
+              <div>
+                <h4 class="title"><a href="#" class="stretched-link">Développement de Landing Pages professionnelles</a></h4>
+                <p class="description">Pages d'atterrissage optimisées pour convertir vos visiteurs en clients</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-tools"></i></div>
+              <div>
+                <h4 class="title"><a href="#" class="stretched-link">Optimisation et amélioration de sites existants</a></h4>
+                <p class="description">Amélioration des performances, du design et de l'expérience utilisateur</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-images"></i></div>
+              <div>
+                <h4 class="title"><a href="#" class="stretched-link">Création de contenu visuel pour réseaux sociaux</a></h4>
+                <p class="description">Design de posts, stories et bannières pour vos réseaux sociaux</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Fonctionnalités</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4 justify-content-between">
+          <div class="features-image col-lg-5 order-lg-2 d-flex align-items-center" data-aos="fade-up" data-aos-delay="100"><img src="assets/img/features.svg" class="img-fluid" alt=""></div>
+          <div class="col-lg-6 d-flex flex-column justify-content-center">
+
+            <div class="features-item d-flex ps-0 ps-lg-3 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-code-slash flex-shrink-0"></i>
+              <div>
+                <h4>Création de sites web</h4>
+                <p>Design and development of modern and responsive websites using HTML, CSS, JS and PHP.</p>
+              </div>
+            </div><!-- End Features Item-->
+
+            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-qr-code flex-shrink-0"></i>
+              <div>
+                <h4>Menu digital + QR</h4>
+                <p>Professional digital menu for restaurants and cafes with easy-to-use QR code and custom brand design.</p>
+              </div>
+            </div><!-- End Features Item-->
+
+            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-palette flex-shrink-0"></i>
+              <div>
+                <h4>Design & Branding</h4>
+                <p>Visual identity design: logos, banners, covers, and complete packages for projects and companies.</p>
+              </div>
+            </div><!-- End Features Item-->
+
+            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="500">
+              <i class="bi bi-rocket flex-shrink-0"></i>
+              <div>
+                <h4>Landing Pages professionnelles</h4>
+                <p>Effective landing pages designed to convert visitors into customers, suitable for services and offers.</p>
+              </div>
+            </div><!-- End Features Item-->
+
+            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="600">
+              <i class="bi bi-tools flex-shrink-0"></i>
+              <div>
+                <h4>Optimisation & Amélioration</h4>
+                <p>Website speed optimization, bug fixes, redesign, and user experience improvement.</p>
+              </div>
+            </div><!-- End Features Item-->
+
+            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="700">
+              <i class="bi bi-images flex-shrink-0"></i>
+              <div>
+                <h4>Contenu visuel réseaux sociaux</h4>
+                <p>High-quality designs for posting on Instagram, Facebook, TikTok and content level enhancement.</p>
+              </div>
+            </div><!-- End Features Item-->
+
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Features Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper" data-speed="600" data-delay="5000" data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>“Le travail sur l’identité visuelle (logo et bannières) était créatif et cohérent. Notre marque apparaît désormais plus professionnelle auprès des clients.”</span>
+
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/client1.png" class="testimonial-img" alt="">
+                <h3>Local Shop </h3>
+                <h4>Équipe marketing</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Un menu numérique + QR Menu a été créé pour notre restaurant, facile pour les clients et augmente les ventes.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/client2.png" class="testimonial-img" alt="">
+                <h3>Digital Café</h3>
+                <h4>Restaurant Owner</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Le design de l'identité visuelle (Logo + Bannières) était professionnel et créatif, notre marque apparaît professionnelle aux visiteurs.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/client3.png" class="testimonial-img" alt="">
+                <h3>Local Shop</h3>
+                <h4>Entrepreneur</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>La landing page créée par cet group  était très efficace, elle a augmenté la conversion des visiteurs en clients directement.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/client4.png" class="testimonial-img" alt="">
+                <h3>Freelance Client</h3>
+                <h4>Client</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Les designs de contenu pour les réseaux sociaux étaient attrayants et captivants, ils nous ont aidés à augmenter l'interaction.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/client5.png" class="testimonial-img" alt="">
+                <h3>Social Media Client</h3>
+                <h4>Designer</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Portfolio</h2>
+        <p>Voici quelques exemples de projets réalisés pour des clients.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-website">Website</li>
+            <li data-filter=".filter-menu">Digital Menu</li>
+            <li data-filter=".filter-social">Contenu social</li>
+            <li data-filter=".filter-carte">Carte visite</li>
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-website">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/web1.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/web1.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>☕ Coffee Shop Website</h4>
+                  <p>Site web moderne et élégant pour présenter votre café</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-menu">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/menu1.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/menu1.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Coffee Menu</h4>
+                  <p>Liste des cafés et prix</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-social">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/social1.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/social1.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Brand Fashion</h4>
+                  <p>Identité visuelle moderne pour marque de mode</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-social">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/social2.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/social2.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Black Friday Promo</h4>
+                  <p>Offres spéciales avec réductions exclusives</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!--<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-website">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/web2.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/web2.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>☕ Coffee Shop Website</h4>
+                  <p>Site web moderne et élégant pour présenter votre café</p>
+                </div>
+              </div>
+            </div>-->
+            <!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-social">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/social3.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/social3.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4> Black Friday Deals</h4>
+                  <p>Jusqu’à 50% de réduction sur vos produits favoris</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-social">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/social4.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/social4.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>New Collection</h4>
+                  <p>Dernière tendance mode pour femmes</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-website">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/web3.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/web3.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>🍽️ Restaurant Website</h4>
+                  <p>Site web moderne pour présenter votre restaurant et attirer plus de clients</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-website">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/web4.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/web4.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>🍽️ Restaurant Website</h4>
+                  <p>Site web professionnel pour mettre en valeur votre cuisine</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-website">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/web5.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/web5.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>🍽️Restaurant Signature</h4>
+                  <p>Cuisine raffinée, expérience moderne</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-website">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/web6.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/web6.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>🍕PIZZA DELICOUS</h4>
+                  <p>Qualité, goût et tradition italienne</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-website">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/web7.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/web7.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>👟Espadrilles Stylesh</h4>
+                  <p>Confort, style et artisanat moderne</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-website">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/web8.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/web8.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>💇‍♂️💇‍♀️HairCare Studio</h4>
+                  <p>Salon de coiffure moderne avec réservation en ligne</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-website">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/web9.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/web9.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>🎮END GAME </h4>
+                  <p>Le meilleur des jeux en un seul site</p>
+                </div>
+              </div>
+            </div>-->
+            <!-- End Portfolio Item -->
+
+
+            <!--<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-menu">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/menu2.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/menu2.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Coffee Shop Menu</h4>
+                  <p>Boissons chaudes et froides pour tous</p>
+                </div>
+              </div>
+            </div>-->
+            <!-- End Portfolio Item -->
+
+
+                       <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-menu">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/menu3.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/menu3.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Pâtisserie Menu</h4>
+                  <p>Délices sucrés pour tous les goûts</p>
+                </div>
+              </div>
+            </div>-->
+            <!-- End Portfolio Item -->
+
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-menu">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/menu4.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/menu4.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Menu Boissons</h4>
+                  <p>Cocktails, jus et boissons rafraîchissantes</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-menu">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/menu5.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/menu5.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Menu Food</a></h4>
+                  <p>Plats variés pour tous les appétits</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+
+                        <!--<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-menu">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/menu6.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/menu6.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Sushi Bar Menu</a></h4>
+                  <p>Sushis frais et plats japonais</p>
+                </div>
+              </div>
+            </div>-->
+            <!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-menu">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/menu7.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/menu7.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Menu Pizza</a></h4>
+                  <p>Pizzas gourmandes et savoureuses</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-menu">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/menu8.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/menu8.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Menu Pizza</a></h4>
+                  <p>Pizzas gourmandes et savoureuses</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-menu">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/menu9.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/menu9.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Menu Food</a></h4>
+                  <p>Plats variés pour tous les appétits</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-menu">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/menu10.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/menu10.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Burger Menu</a></h4>
+                  <p>Burgers classiques et spéciaux</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+
+
+
+
+
+             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-carte">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/carte1.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/carte1.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4> Carte Chef Pro</h4>
+                  <p>Identité visuelle pour chef gastronomique</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-carte">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/carte2.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/carte2.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Kitchen Business Card</h4>
+                  <p>Carte moderne pour services culinaires</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+             <!--<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-carte">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/carte3.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/carte3.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Café Identity</h4>
+                  <p>Design simple et élégant pour café local</p>
+                </div>
+              </div>
+            </div>-->
+            <!-- End Portfolio Item -->
+
+             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-carte">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/carte4.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/carte4.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Photo Business Card</h4>
+                  <p>Design professionnel pour photographes</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-carte">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/carte5.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/carte5.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Business Card Premium</h4>
+                  <p>Carte élégante pour entreprises modernes</p>
+                </div>
+              </div>
+            </div>-->
+            <!-- End Portfolio Item -->
+
+             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-carte">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/carte6.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/carte6.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Corporate Card</h4>
+                  <p>Carte professionnelle au style luxueux</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-carte">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/carte7.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/carte7.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Auto Consultant</h4>
+                  <p>Carte professionnelle pour services automobiles</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-carte">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/carte8.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/carte8.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Luxury Card</h4>
+                  <p>Design raffiné pour marque haut de gamme</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!--<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-carte">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/carte9.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/carte9.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Enterprise Card</h4>
+                  <p>Carte moderne pour entreprises professionnelles</p>
+                </div>
+              </div>
+            </div>-->
+            <!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-carte">
+              <div class="portfolio-content h-100">
+                <a href="assets/img/portfolio/carte10.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/carte10.png" class="img-fluid" alt=""></a>
+                <div class="portfolio-info">
+                  <h4>Engineering Card</h4>
+                  <p>Carte pro pour bureaux d’ingénierie</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+
+
+
+    <!-- Faq Section -->
+    <section id="faq" class="faq section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Questions Fréquemment Posées</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="faq-container">
+
+              <div class="faq-item faq-active">
+                <h3>Quels types de sites web créez-vous ?</h3>
+                <div class="faq-content">
+                  <p>Nous créons des sites web modernes et responsives en HTML, CSS, JS et PHP, adaptés aux entreprises, restaurants et projets personnels.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Proposez-vous des menus digitaux et QR pour les restaurants ?</h3>
+                <div class="faq-content">
+                  <p>Oui, nous concevons des menus digitaux interactifs avec QR codes faciles à utiliser et personnalisés selon l'identité visuelle du restaurant.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Pouvez-vous réaliser des logos et du branding ?</h3>
+                <div class="faq-content">
+                  <p>Absolument, nous créons des logos, bannières et identités visuelles professionnelles pour les entreprises et projets personnels.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+             
+
+              <div class="faq-item">
+                <h3>Combien de temps prend la réalisation d'un site web ?</h3>
+                <div class="faq-content">
+                  <p>La durée dépend de la complexité du projet, généralement entre 1 à 4 semaines pour un site standard.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Offrez-vous du support après la livraison du projet ?</h3>
+                <div class="faq-content">
+                  <p>Oui, nous fournissons un support technique et des conseils pour maintenir et améliorer votre site après sa mise en ligne.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+
+          </div><!-- End Faq Column-->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Faq Section -->
+
+    <!-- Team Section -->
+    <section id="team" class="team section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Notre Équipe</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="assets/img/team/hada1.png" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=61585107963294"><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>AHMED ALAMI</h4>
+                <span>Founder & Lead Developer</span>
+                <p>Fondateur de The Code Academy, développeur web et designer, spécialisé dans la création de sites modernes, menus digitaux, branding et solutions digitales pour entreprises.</p>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="assets/img/team/hada2.png" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Fatima El Amrani</h4>
+                <span>Product Manager</span>
+                <p>Responsable de la gestion des projets et de la coordination des clients pour assurer la qualité et la livraison dans les délais.</p>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="assets/img/team/hada3.png" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Youssef Benjelloun</h4>
+                <span>CTO</span>
+                <p>Expert technique en développement web et optimisation des performances, garantissant des solutions fiables et modernes.</p>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="assets/img/team/hada4.png" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Sara Mouh</h4>
+                <span>Designer & Social Media Specialist</span>
+                <p>Chargée du design graphique et du contenu visuel pour les réseaux sociaux, logos, bannières et identité visuelle des projets.</p>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Team Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Réservation de projet</h2>
+        <p>Remplissez ce formulaire pour réserver votre projet ou demander un devis. Nous vous contacterons rapidement pour discuter de vos besoins.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 justify-content-center">
+
+          <div class="col-lg-10">
+
+            <div class="embed-responsive embed-responsive-16by9" data-aos="fade-up" data-aos-delay="200">
+              <iframe src="https://docs.google.com/forms/d/1i9HndWDYRROF14vVpbglPRLwQ0c23wuBhxi-vUvOkGc/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+                      <div class="form-check">
+
+  </main>
+
+  <footer id="footer" class="footer accent-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">The Code Academy</span>
+          </a>
+          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61585107963294"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/the_code_academyy/"><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+              <a href=""><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+
+       <!-- <div class="col-lg-2 col-6 footer-links">
+          <h4>Liens utiles</h4>
+          <ul>
+            <li>Accueil</li>
+            <li>À propos de nous</li>
+            <li>Services</li>
+            <li>>Conditions d'utilisation</li>
+            <li>Politique de confidentialité</li>
+          </ul>
+        </div>-->
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Nos services</h4>
+          <ul>
+            <li>Conception web</li>
+            <li>Développement web</li>
+            <li>Gestion de produit</li>
+            <li>Marketing</li>
+            <li>Design graphique</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contactez-nous</h4>
+
+          <p>CASABLANCA , MAROC </p>
+          <p class="mt-4"><strong>Téléphone :</strong> <span>+212 634-447206</span></p>
+          <p><strong>Email :</strong> <span>thecodeacademy99@gmail.com</span></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">THE CODE ACADEMY</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by THE CODE ACADEMY
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>                       
